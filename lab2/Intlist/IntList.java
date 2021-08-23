@@ -106,21 +106,6 @@ public class IntList {
         return new IntList(A.first, catenate(A.rest, B));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
      * will be introduced later in the course or feature some form of advanced
