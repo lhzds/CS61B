@@ -1,4 +1,5 @@
-/** Deque implemented by using doubly linked list with circular sentinel topology. */
+/** Deque implemented by using doubly linked list
+ * with circular sentinel topology. */
 public class LinkedListDeque<T> {
     /** Creates an empty linked list deque. */
     public LinkedListDeque() {
@@ -27,15 +28,16 @@ public class LinkedListDeque<T> {
     }
 
     /** Adds an item of type T to the back of the deque. */
-    public void addLast(T item){
+    public void addLast(T item) {
         ++size;
         ListNode newNode = new ListNode(item, sentinel.prev, sentinel);
         sentinel.prev.next = newNode;
         sentinel.prev = newNode;
     }
 
-    /** Prints the items in the deque from first to last, separated by a space. */
-    public void printDeque(){
+    /** Prints the items in the deque from first to last,
+     *  separated by a space. */
+    public void printDeque() {
         if (isEmpty()) {
             return;
         }
@@ -49,8 +51,9 @@ public class LinkedListDeque<T> {
         System.out.println(ptr.item);
     }
 
-    /** Removes and returns the item at the front of the deque. If no such item exists, returns null. */
-    public T removeFirst(){
+    /** Removes and returns the item at the front of the deque.
+     *  If no such item exists, returns null. */
+    public T removeFirst() {
         if (isEmpty()) {
             return null;
         }
@@ -61,8 +64,9 @@ public class LinkedListDeque<T> {
         return removed.item;
     }
 
-    /** Removes and returns the item at the back of the deque. If no such item exists, returns null. */
-    public T removeLast(){
+    /** Removes and returns the item at the back of the deque.
+     *  If no such item exists, returns null. */
+    public T removeLast() {
         if (isEmpty()) {
             return null;
         }
@@ -76,7 +80,7 @@ public class LinkedListDeque<T> {
     /** Gets the item at the given index, where 0 is the front,
      *  1 is the next item, and so forth. If no such item exists,
      *  returns null. Must not alter the deque! */
-    public T get(int index){
+    public T get(int index) {
         if (index >= size) {
             return null;
         }
@@ -102,7 +106,7 @@ public class LinkedListDeque<T> {
         if (curIndex == neededIndex) {
             return node.item;
         }
-        return getRecursive(neededIndex, curIndex, node.next);
+        return getRecursive(neededIndex, curIndex + 1, node.next);
     }
 
     private class ListNode {
@@ -112,10 +116,11 @@ public class LinkedListDeque<T> {
             this.next = next;
         }
 
-        public T item;
-        public ListNode prev;
-        public ListNode next;
+        private T item;
+        private ListNode prev;
+        private ListNode next;
     }
     private ListNode sentinel;
     private int size;
 }
+
